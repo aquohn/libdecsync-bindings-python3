@@ -42,7 +42,7 @@ if os_name == "Linux":
             libpath = resource_filename(__name__, "libs/libdecsync_arm32.so")
     else:
         raise Exception("libdecsync: Machine type '" + machine_type + "' not supported")
-elif os_name == "Windows":
+elif os_name == "Windows" or os_name.startswith(('MSYS', 'CYGWIN', 'MINGW')):
     if platform_bits == "64bit":
         libpath = resource_filename(__name__, "libs/decsync_x64.dll")
     else:
